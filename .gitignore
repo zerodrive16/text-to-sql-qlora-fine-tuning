@@ -49,3 +49,8 @@ Thumbs.db
 
 # Docker
 *.env.docker
+
+
+# individual files
+memory.md
+data/database/
