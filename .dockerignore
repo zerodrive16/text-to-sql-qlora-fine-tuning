@@ -1,33 +1,24 @@
-# Version control
-.git
-.gitignore
+.git 
+.gitignore 
 
-# Local virtualenv (platform-specific, rebuilt inside the image via uv sync)
-.venv
-.python-version
+.venv 
+.python-version 
 
-# Secrets / local config (injected at runtime via env_file, not baked into the image)
-.env
+.env 
 
-# Python cache
-__pycache__
+__pycache__ 
 *.pyc
 *.pyo
 
-# Local dev database (created fresh / mounted as a volume in containers)
-db.sqlite3
-
-# Docker itself
-Dockerfile
+Dockerfile 
 docker-compose.yml
 .dockerignore
 
-# Editor/OS cruft
-.vscode
-.idea
-*.swp
-.DS_Store
+.vscode 
+idea 
 
-# Project docs not needed at runtime
-tasks.md
-README.md
+
+tasks.md 
+README.md 
+memory.md
+data/database
