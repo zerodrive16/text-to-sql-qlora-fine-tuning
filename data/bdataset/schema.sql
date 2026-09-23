@@ -34,7 +34,8 @@ CREATE TABLE products (
     id                  INTEGER PRIMARY KEY,
     name_products       TEXT NOT NULL,
     product_category_id INTEGER REFERENCES product_categories(id),
-    unit_price          REAL NOT NULL,
+    unit_price          REAL NOT NULL, -- what the customer paid 
+    unit_cost           REAL,     -- what i paid
     stock_quantity      INTEGER NOT NULL DEFAULT 0
 );
  
@@ -55,7 +56,9 @@ CREATE TABLE orders (
     customer_id INTEGER NOT NULL REFERENCES customers(id),
     employee_id INTEGER REFERENCES employees(id),
     order_date  TEXT NOT NULL, -- yyyy-mm-dd
-    ship_date   TEXT           -- yyyy-mm-dd
+    ship_date   TEXT,          -- yyyy-mm-dd
+    status      TEXT NOT NULL DEFAULT 'pending', -- pending, shipped, delivered, cancelled
+    channel     TEXT NOT NULL  -- web, phone, partner
 );
  
 CREATE TABLE order_items (

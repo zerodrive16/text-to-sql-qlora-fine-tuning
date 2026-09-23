@@ -5,6 +5,10 @@ DB_PATH = BASE_DIR / "business.sqlite"
 SCHEMA_PATH = BASE_DIR / "schema.sql"
 
 def init_db(): 
+    if DB_PATH.exists(): 
+        DB_PATH.unlink()
+        print("Deleting old database")
+
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(DB_PATH)
     conn.executescript(SCHEMA_PATH.read_text())
