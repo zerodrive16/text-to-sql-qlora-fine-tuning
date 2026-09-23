@@ -4,7 +4,7 @@ import random
 from faker import Faker 
 from datetime import date, timedelta
 
-fake = Faker("de-DE")
+fake = Faker("en_US")
 random.seed(42)
 Faker.seed(42)
 
@@ -33,16 +33,16 @@ REGIONS = [
     (2, "East", "Germany"),
     (3, "West", "Germany"),
     (4, "South", "Germany"),
-    (5, "Nord", "Ireland"), 
+    (5, "North", "Ireland"),
     (6, "East", "Ireland"),
     (7, "West", "Ireland"),
     (9, "South", "Ireland"),
 ]
 
 SEGMENTS = [
-    (1, "Retail",      "Einzelhandelskunden"),
-    (2, "Wholesale",   "Großhandelskunden"),
-    (3, "Enterprise",  "Unternehmenskunden"),
+    (1, "Retail",      "Retail customers"),
+    (2, "Wholesale",   "Wholesale customers"),
+    (3, "Enterprise",  "Enterprise customers"),
 ]
 
 CATEGORIES = [
@@ -249,7 +249,7 @@ def main():
               "orders", "order_items", "payments"]
     for t in tables:
         count = conn.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0]
-        print(f"  {t:<25} {count:>5} Zeilen")
+        print(f"  {t:<25} {count:>5} rows")
  
     conn.close()
     print(f"\n Done! Database: {DB_PATH}")
